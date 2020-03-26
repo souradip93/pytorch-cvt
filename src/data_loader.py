@@ -134,14 +134,6 @@ class Data(object):
         self.lab.build_vocab(self.train.dataset)
         self.char.build_vocab(self.train.dataset)
 
-        self.words.build_vocab(self.test.dataset)
-        self.lab.build_vocab(self.test.dataset)
-        self.char.build_vocab(self.test.dataset)
-
-        self.words.build_vocab(self.unlabeled_data.dataset)
-        self.lab.build_vocab(self.unlabeled_data.dataset)
-        self.char.build_vocab(self.unlabeled_data.dataset)
-
         self.num_words = len(self.words.vocab)
         self.num_tags = len(self.lab.vocab)
         self.num_char = len(self.char.vocab)
