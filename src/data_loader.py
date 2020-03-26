@@ -178,10 +178,13 @@ class Data(object):
         # self._create_dataset()
         while True:
             for iter in self._endless_unlabeled():
-                for mb in iter:
-                    yield next(self._endless_minibatch(self.train)), "labeled"
-                    if self.semi_supervised:
-                        yield mb, "unlabeled"
+                try:
+                    for mb in iter:
+                        yield next(self._endless_minibatch(self.train)), "labeled"
+                        if self.semi_supervised:
+                            yield mb, "unlabeled"
+                except:
+                    continue
 
     def get_input_sizes(self):
         return self.num_words, self.num_char, self.num_tags
