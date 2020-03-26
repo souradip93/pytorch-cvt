@@ -81,7 +81,7 @@ class Data(object):
         with open(self.test_path) as f:
             for line in f:
                 self.test_sentences.append(line.replace("\n", ""))
-        self.logger.info('{} test sentences successfully read'.format(len(self.train_sentences)))
+        self.logger.info('{} test sentences successfully read'.format(len(self.test_sentences)))
 
     def _init_fields(self):
         self.words = Field(batch_first=True, init_token='<s>', eos_token='</s>')
