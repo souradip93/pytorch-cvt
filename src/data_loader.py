@@ -130,9 +130,9 @@ class Data(object):
                                      lambda ex: len(ex.words), device=device)
 
     def _build_vocabularies(self):
-        self.words.build_vocab(self.train.dataset)
-        self.lab.build_vocab(self.train.dataset)
-        self.char.build_vocab(self.train.dataset)
+        self.words.build_vocab(self.train.dataset, self.test.dataset, self.unlabeled_data.dataset)
+        self.lab.build_vocab(self.train.dataset, self.test.dataset, self.unlabeled_data.dataset)
+        self.char.build_vocab(self.train.dataset, self.test.dataset, self.unlabeled_data.dataset)
 
         self.num_words = len(self.words.vocab)
         self.num_tags = len(self.lab.vocab)
