@@ -209,6 +209,7 @@ class Trainer(object):
 
                 # try:
                 loss = self.cvt(word_input, mode, char_input=char_input, label=label, mask=mask, unk_id=unk_id)
+                print(loss)
 
                 if mode == "labeled":
                     running_loss += loss.item()
